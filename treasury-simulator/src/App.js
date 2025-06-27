@@ -1,15 +1,16 @@
 import "./App.css";
 import React from "react";
-import AccountList from "./AccountList";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AccountList from "./components/AccountList";
+import TransactionLog from "./components/TransactionLog";
+import Sidebar from "./components/SideBar";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AccountList />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <Sidebar />
+      <AccountList />
+      <TransactionLog />
+    </div>
   );
 }
 
