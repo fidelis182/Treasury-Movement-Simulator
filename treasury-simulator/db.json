@@ -1,0 +1,64 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "name": "Mpesa_KES_1",
+      "currency": "KES",
+      "balance": 1000
+    },
+    {
+      "id": 2,
+      "name": "Mobile_NGN_2",
+      "currency": "NGN",
+      "balance": 450000
+    },
+    {
+      "id": 3,
+      "name": "Bank_USD_3",
+      "currency": "USD",
+      "balance": 2000
+    },
+    {
+      "id": 4,
+      "name": "Mobile_NGN_4",
+      "currency": "NGn",
+      "balance": 800000
+    },
+    {
+      "id": 5,
+      "name": "Mpesa_KES_5",
+      "currency": "KES",
+      "balance": 90000
+    },
+    {
+      "id": 6,
+      "name": "Mobile_NGN_6",
+      "currency": "NGN",
+      "balance": 30000
+    },
+    {
+      "id": 7,
+      "name": "Bank_USD_7",
+      "currency": "USD",
+      "balance": 200
+    },
+    {
+      "id": 8,
+      "name": "Bank_KES_8",
+      "currency": "KES",
+      "balance": 500000
+    },
+    {
+      "id": 9,
+      "name": "Bank_NGN_9",
+      "currency": "NGN",
+      "balance": 300000
+    },
+    {
+      "id": 10,
+      "name": "Mpesa_KES_10",
+      "currency": "KES",
+      "balance": 100000
+    }
+  ]
+}
