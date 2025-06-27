@@ -1,38 +1,104 @@
-.App {
+body {
+  font-family: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
+  color: #131842;
+  padding: 20px;
+  margin: 0;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #674188;
+}
+h2 {
+  color: #674188;
   text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 24px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* tbale */
+.table-container {
+  margin-top: 20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-top: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
+th,
+td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+th {
+  background-color: #674188;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  color: #ffffff;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+/* tr:nth-child(even) {
+  background-color: #e2bfd9;
+} */
+tr:hover {
+  background-color: #ebe9e8;
+}
+.errorMsg {
+  color: #c82333;
+  margin-bottom: 15px;
+}
+/* button styling */
+/* .btn {
+  display: inline-block;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-right: 15px;
+}
+.btn-primary {
+  background-color: #674188;
+}
+.btn-danger {
+  background-color: #dc3545;
+}
+.btn-info {
+  background-color: #33bee5;
+}
+.btn:hover {
+  transform: translateY(-px);
+}
+.btn-add {
+  background-color: #533366;
+}
+.btn-save {
+  background-color: #533366;
+}
+.btn-back {
+  background-color: #c82333;
+} */
+/* form */
+/* form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+form label {
+  font-weight: 600;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+form input {
+  margin-bottom: 10px;
+  height: 30px;
+} */
