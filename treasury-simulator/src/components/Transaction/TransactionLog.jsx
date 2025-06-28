@@ -1,44 +1,51 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./TransactionLog.css";
 
 export default function TransactionLog() {
-  const [accounts, setAccount] = useState("");
+  const [transactions, setTransactions] = useState([]);
+
   useEffect(() => {
-    // to get data from the API
-    fetch("http://localhost:5000/accounts")
-      // promise
+    fetch("http://localhost:5000/transactions")
       .then((res) => res.json())
-      // to update data
-      .then((data) => setAccount(data))
-      .catch((err) => console.log(err.message));
+      .then((data) => setTransactions(data))
+      .catch((err) => console.error("Error fetching transactions:", err));
   }, []);
+
   return (
-    <div className="container ">
-      <div className="table-container full-width">
-        <h2>TransactionLog Table</h2>
-        <table>
-          <thead>
+    <div className="transaction-log-container">
+      <h2>Transaction Log</h2>
+      <table className="transaction-table">
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th>Date</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          {transactions.length === 0 ? (
             <tr>
-              <th>ID</th>
-              <th>Account_name</th>
-              <th>Currency</th>
-              <th>Amount</th>
+              <td colSpan="6" className="no-transactions">
+                No transactions found.
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {accounts &&
-              accounts.map((item) => (
-                <tr key={item.id}>
-                  {" "}
-                  {/* ✅ Add key here */}
-                  <td>{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.currency}</td>
-                  <td>{item.balance}</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      </div>
+          ) : (
+            transactions.map((tx) => (
+              <tr key={tx.id}>
+                <td>{tx.account_From}</td>
+                <td>{tx.account_To}</td>
+                <td>{tx.amount}</td>
+                <td>{tx.currency}</td>
+                <td>{tx.date}</td>
+                <td>{tx.comment}</td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }

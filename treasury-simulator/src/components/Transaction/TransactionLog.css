@@ -1,0 +1,40 @@
+.transaction-log-container {
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-table {
+  width: 60%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transaction-table th {
+  color: #111827;
+  background-color: #674188;
+  font-weight: 600;
+}
+
+.transaction-table tr:nth-child(even) {
+  background-color: #f3f4f6;
+}
+
+.transaction-table tr:hover {
+  background-color: #e5e7eb;
+}
+
+.no-transactions {
+  text-align: center;
+  color: #6b7280;
+  padding: 2rem;
+}

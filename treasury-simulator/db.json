@@ -60,5 +60,34 @@
       "currency": "KES",
       "balance": 100000
     }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "account_From": "Mpesa_KES_1",
+      "account_To": "Bank_USD_3",
+      "amount": "500",
+      "currency": "KES",
+      "date": "2025-06-27",
+      "comment": "Utility payment"
+    },
+    {
+      "id": 2,
+      "account_From": "Bank_USD_3",
+      "account_To": "Mobile_NGN_2",
+      "amount": "1000",
+      "currency": "USD",
+      "date": "2025-06-26",
+      "comment": "Cross-border transfer"
+    },
+    {
+      "id": "eee2",
+      "account_From": "Mobile_NGN_4",
+      "account_To": "Bank_USD_7",
+      "amount": 400,
+      "currency": "KES",
+      "date": "2025-07-04",
+      "comment": "Shool fees"
+    }
   ]
 }

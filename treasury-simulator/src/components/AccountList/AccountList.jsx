@@ -6,6 +6,9 @@ import React from "react";
 export default function AccountList() {
   const [accounts, setAccount] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState(null);
+  const [view, setView] = useState("accounts"); // "accounts" or "transactions"
+  const [transactions, setTransactions] = useState([]);
+
   useEffect(() => {
     // to get data from the API
     fetch("http://localhost:5000/accounts")
@@ -59,7 +62,10 @@ export default function AccountList() {
       </div>
       {selectedAccount && (
         <div className="absolute top-0 left-0 w-full h-full z-50 bg-white bg-opacity-95 p-6 shadow-xl">
-          <TransferForm fromAccount={selectedAccount.name} />
+          <TransferForm
+            fromAccount={selectedAccount.name}
+            accounts={accounts}
+          />
           <button
             onClick={() => setSelectedAccount(null)}
             className="mt-4 btn btn-secondary"

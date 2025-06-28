@@ -1,119 +1,126 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./transfer.css";
+import { useNavigate } from "react-router-dom";
 
-export default function TransferForm() {
+export default function TransferForm({
+  fromAccount,
+  accounts = [],
+  onTransfer,
+}) {
   const [account_From, setAccount_From] = useState("");
   const [account_To, setAccount_To] = useState("");
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("");
   const [date, setDate] = useState("");
   const [comment, setComment] = useState("");
-  const [validation, setValidation] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (fromAccount) {
+      setAccount_From(fromAccount);
+    }
+  }, [fromAccount]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const amountNum = parseFloat(amount);
+
+    if (isNaN(amountNum)) {
+      alert("Amount must be a valid number.");
+      return;
+    }
+
+    const from = accounts.find((acc) => acc.name === account_From);
+    if (from && amountNum > from.balance) {
+      alert("Insufficient balance.");
+      return;
+    }
+
     const AccountData = {
       account_From,
       account_To,
-      amount,
+      amount: amountNum,
       currency,
       date,
       comment,
     };
-    console.log(AccountData);
-    fetch("http://localhost:5000/acounts", {
+
+    fetch("http://localhost:5000/transactions", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(AccountData),
     })
-      .then((res) => {
-        alert("account data saved successfully");
+      .then(() => {
+        alert("Transfer successful");
+        onTransfer && onTransfer(AccountData);
+        navigate("/transactions");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.error(err));
   };
+
   return (
     <div className="Container width-60">
       <h2>Transfer Form</h2>
-      <form onSubmt={handleSubmit}>
-        <label htmlFor="account_from">Account_From:</label>
-        <input
-          type="text"
-          id="account_from"
-          name="account_from"
-          required
-          value={account_From}
-          onChange={(e) => setAccount_From(e.target.value)}
-          onMouseDown={() => setValidation(true)}
-        />
-        {account_From.length === 0 && validation && (
-          <span className="errorMsg">Please enter the account from</span>
-        )}
-        <label htmlFor="account_To">Account_To:</label>
-        <input
-          type="text"
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="account_from">Account From:</label>
+        <input type="text" id="account_from" value={account_From} readOnly />
+
+        <label htmlFor="account_To">Account To:</label>
+        <select
           id="account_To"
-          name="account_To"
-          required
           value={account_To}
           onChange={(e) => setAccount_To(e.target.value)}
-          onMouseDown={() => setValidation(true)}
-        />
-        {account_To.length === 0 && validation && (
-          <span className="errorMsg">Please enter the destinationaccount</span>
-        )}
+          required
+        >
+          <option value="">--Select Account--</option>
+          {accounts
+            .filter((acc) => acc.name !== account_From)
+            .map((acc) => (
+              <option key={acc.id} value={acc.name}>
+                {acc.name}
+              </option>
+            ))}
+        </select>
+
         <label htmlFor="amount">Amount:</label>
         <input
-          type="text"
+          type="number"
           id="amount"
-          name="amount"
-          required
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          onMouseDown={() => setValidation(true)}
+          required
         />
-        {amount.length === 0 && validation && (
-          <span className="errorMsg">Please enter the amount </span>
-        )}
+
         <label htmlFor="currency">Currency:</label>
         <input
           type="text"
           id="currency"
-          name="currency"
-          required
           value={currency}
           onChange={(e) => setCurrency(e.target.value)}
-          onMouseDown={() => setValidation(true)}
+          required
         />
-        {currency.length === 0 && validation && (
-          <span className="errorMsg">Please enter your currency</span>
-        )}
 
         <label htmlFor="date">Date:</label>
         <input
-          type="text"
+          type="date"
           id="date"
-          name="date"
           value={date}
-          required
           onChange={(e) => setDate(e.target.value)}
-          onMouseDown={() => setValidation(true)}
+          required
         />
-        {date.length === 0 && validation && (
-          <span className="errorMsg">Please enter transaction date</span>
-        )}
+
         <label htmlFor="comment">Comment:</label>
         <input
           type="text"
           id="comment"
-          name="comment"
-          required
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          onMouseDown={() => setValidation(true)}
         />
-        {comment.length === 0 && validation && (
-          <span className="errorMsg">Please enter your comment</span>
-        )}
-        <button className="btn btn-transfer">Transfer</button>
+
+        <button type="submit" className="btn btn-transfer">
+          Transfer
+        </button>
       </form>
     </div>
   );
