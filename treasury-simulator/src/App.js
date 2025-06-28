@@ -1,15 +1,13 @@
 import "./App.css";
 import React from "react";
-import AccountList from "./components/AccountList";
-import TransactionLog from "./components/TransactionLog";
-import Sidebar from "./components/SideBar";
+import Sidebar from "./components/Sidebar/SideBar";
+import MainDashboard from "./components/MainDashboard/MainDashboard";
 
 function App() {
   return (
     <div>
       <Sidebar />
-      <AccountList />
-      <TransactionLog />
+      <MainDashboard />
     </div>
   );
 }

@@ -1,3 +1,37 @@
+.App {
+  background: linear-gradient(135deg, #dadada, #a6a6a6, #808080);
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+.appGlass {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  border-radius: 2rem;
+  background: var(--glass);
+  overflow: hidden;
+  /* to the three different  collums on the dashboard */
+  grid-template-columns: 11rem auto 20rem;
+}
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #1e293b;
+  color: white;
+}
+
+.dashboard {
+  margin-left: 220px;
+  flex: 1;
+  padding: 20px;
+}
 body {
   font-family: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
   color: #131842;
@@ -7,81 +41,8 @@ body {
 
 /* App.css or Dashboard.css */
 
-.dashboard {
-  padding: 20px;
-  background: #f3f4f6;
-  min-height: 100vh;
-}
-
-.top-section {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.container {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  flex: 1;
-  max-width: 900px;
-}
-.width-60 {
-  flex: 0 0 60%;
-}
-
-.width-40 {
-  flex: 0 0 40%;
-}
-
-.full-width {
-  width: 100%;
-}
-h2 {
-  color: #674188;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: 600;
-  font-size: 24px;
-}
 /* tbale */
-.table-container {
-  margin-top: 20px;
-}
-table {
-  width: 40%;
-  border-collapse: collapse;
-  background-color: #ffffff;
-  border-radius: 8px;
-  margin-top: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
-th,
-td {
-  padding: 15px 20px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-}
-th {
-  background-color: #674188;
 
-  color: #ffffff;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-/* tr:nth-child(even) {
-  background-color: #e2bfd9;
-} */
-tr:hover {
-  background-color: #ebe9e8;
-}
-.errorMsg {
-  color: #c82333;
-  margin-bottom: 15px;
-}
 /* button styling */
 .btn {
   display: inline-block;
@@ -117,15 +78,3 @@ tr:hover {
   background-color: #c82333;
 }
 /* form  style*/
-form {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-}
-form label {
-  font-weight: 600;
-}
-form input {
-  margin-bottom: 10px;
-  height: 30px;
-}
