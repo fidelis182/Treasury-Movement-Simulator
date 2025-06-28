@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import "./transfer.css";
 import { useNavigate } from "react-router-dom";
+const exchangeRates = {
+  KES: { USD: 0.0067, NGN: 5.4 },
+  USD: { KES: 150.0, NGN: 810.0 },
+  NGN: { KES: 27.5, USD: 0.0012 },
+};
 
 export default function TransferForm({
   fromAccount,
@@ -23,7 +28,6 @@ export default function TransferForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const amountNum = parseFloat(amount);
 
     if (isNaN(amountNum)) {
@@ -32,16 +36,37 @@ export default function TransferForm({
     }
 
     const from = accounts.find((acc) => acc.name === account_From);
-    if (from && amountNum > from.balance) {
-      alert("Insufficient balance.");
+    if (!from) {
+      alert("Invalid source account.");
+      return;
+    }
+
+    const fromCurrency = from.currency.toUpperCase();
+    const inputCurrency = currency.toUpperCase();
+    let convertedAmount = amountNum;
+
+    // Convert if currencies differ
+    if (inputCurrency !== fromCurrency) {
+      const rate = exchangeRates[inputCurrency]?.[fromCurrency];
+      if (!rate) {
+        alert(`No exchange rate from ${inputCurrency} to ${fromCurrency}`);
+        return;
+      }
+      convertedAmount = amountNum * rate;
+    }
+
+    if (convertedAmount > from.balance) {
+      alert("Insufficient balance after conversion.");
       return;
     }
 
     const AccountData = {
       account_From,
       account_To,
-      amount: amountNum,
-      currency,
+      originalAmount: amountNum,
+      convertedAmount: convertedAmount.toFixed(2),
+      currency: inputCurrency,
+      convertedCurrency: fromCurrency,
       date,
       comment,
     };
@@ -92,12 +117,13 @@ export default function TransferForm({
           required
         />
 
-        <label htmlFor="currency">Currency:</label>
+        <label htmlFor="currency">Currency (of amount above):</label>
         <input
           type="text"
           id="currency"
           value={currency}
           onChange={(e) => setCurrency(e.target.value)}
+          placeholder="e.g. KES, USD, NGN"
           required
         />
 

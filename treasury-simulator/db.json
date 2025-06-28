@@ -81,13 +81,26 @@
       "comment": "Cross-border transfer"
     },
     {
-      "id": "eee2",
-      "account_From": "Mobile_NGN_4",
-      "account_To": "Bank_USD_7",
-      "amount": 400,
+      "id": "4513",
+      "account_From": "Mpesa_KES_1",
+      "account_To": "Mobile_NGN_2",
+      "originalAmount": 500,
+      "convertedAmount": "500.00",
       "currency": "KES",
-      "date": "2025-07-04",
-      "comment": "Shool fees"
+      "convertedCurrency": "KES",
+      "date": "2025-06-28",
+      "comment": "Treatment"
+    },
+    {
+      "id": "6490",
+      "account_From": "Bank_KES_8",
+      "account_To": "Mpesa_KES_1",
+      "originalAmount": 4499,
+      "convertedAmount": "4499.00",
+      "currency": "KES",
+      "convertedCurrency": "KES",
+      "date": "2025-06-20",
+      "comment": "insuarance"
     }
   ]
 }
