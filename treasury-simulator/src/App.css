@@ -12,20 +12,19 @@
   flex-direction: row;
   min-height: 100vh;
   border-radius: 2rem;
-  background: var(--glass);
+  background-color: #f3f4f6;
   overflow: hidden;
   /* to the three different  collums on the dashboard */
   grid-template-columns: 11rem auto 20rem;
 }
-.sidebar {
+/* .sidebar {
   width: 220px;
-  height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
   background: #1e293b;
   color: white;
-}
+} */
 
 .dashboard {
   margin-left: 220px;
@@ -63,7 +62,7 @@ body {
   background-color: #dc3545;
 }
 .btn-info {
-  background-color: #33bee5;
+  background-color: #2563eb;
 }
 .btn:hover {
   transform: translateY(-px);
@@ -77,4 +76,3 @@ body {
 .btn-back {
   background-color: #c82333;
 }
-/* form  style*/

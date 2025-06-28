@@ -6,8 +6,9 @@
   width: 220px;
   background-color: #1e293b; /* dark color */
   color: #fff;
-  height: 100vh;
+  height: 90vh;
   position: fixed;
+  overflow-y: auto;
 }
 .logo {
   height: 5rem;
