@@ -1,85 +1,67 @@
 {
   "accounts": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Mpesa_KES_1",
       "currency": "KES",
       "balance": 1000
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Mobile_NGN_2",
       "currency": "NGN",
       "balance": 450000
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Bank_USD_3",
       "currency": "USD",
       "balance": 2000
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Mobile_NGN_4",
       "currency": "NGn",
       "balance": 800000
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Mpesa_KES_5",
       "currency": "KES",
       "balance": 90000
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Mobile_NGN_6",
       "currency": "NGN",
       "balance": 30000
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Bank_USD_7",
       "currency": "USD",
       "balance": 200
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Bank_KES_8",
       "currency": "KES",
       "balance": 500000
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Bank_NGN_9",
       "currency": "NGN",
       "balance": 300000
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Mpesa_KES_10",
       "currency": "KES",
       "balance": 100000
     }
   ],
   "transactions": [
-    {
-      "id": 1,
-      "account_From": "Mpesa_KES_1",
-      "account_To": "Bank_USD_3",
-      "amount": "500",
-      "currency": "KES",
-      "date": "2025-06-27",
-      "comment": "Utility payment"
-    },
-    {
-      "id": 2,
-      "account_From": "Bank_USD_3",
-      "account_To": "Mobile_NGN_2",
-      "amount": "1000",
-      "currency": "USD",
-      "date": "2025-06-26",
-      "comment": "Cross-border transfer"
-    },
     {
       "id": "4513",
       "account_From": "Mpesa_KES_1",
@@ -100,6 +82,28 @@
       "currency": "KES",
       "convertedCurrency": "KES",
       "date": "2025-06-20",
+      "comment": "insuarance"
+    },
+    {
+      "id": "8124",
+      "account_From": "Mobile_NGN_4",
+      "account_To": "Mpesa_KES_1",
+      "originalAmount": 300,
+      "convertedAmount": "1620.00",
+      "currency": "KES",
+      "convertedCurrency": "NGN",
+      "date": "2025-06-30",
+      "comment": "salary"
+    },
+    {
+      "id": "448c",
+      "account_From": "Mobile_NGN_2",
+      "account_To": "Mobile_NGN_4",
+      "originalAmount": 500,
+      "convertedAmount": "500.00",
+      "currency": "NGN",
+      "convertedCurrency": "NGN",
+      "date": "2025-06-30",
       "comment": "insuarance"
     }
   ]

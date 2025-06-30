@@ -5,7 +5,9 @@ export default function TransactionLog() {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/transactions")
+    fetch(
+      "https://my-json-server.typicode.com/fidelis182/treasury-api-mock/transactions"
+    )
       .then((res) => res.json())
       .then((data) => setTransactions(data))
       .catch((err) => console.error("Error fetching transactions:", err));

@@ -11,7 +11,9 @@ export default function AccountList() {
 
   useEffect(() => {
     // to get data from the API
-    fetch("http://localhost:5000/accounts")
+    fetch(
+      "https://my-json-server.typicode.com/fidelis182/treasury-api-mock/accounts"
+    )
       // promise
       .then((res) => res.json())
       // to update data
