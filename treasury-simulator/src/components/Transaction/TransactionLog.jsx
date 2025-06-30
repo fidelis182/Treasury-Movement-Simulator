@@ -6,7 +6,7 @@ export default function TransactionLog() {
 
   useEffect(() => {
     fetch(
-      "https://my-json-server.typicode.com/fidelis182/treasury-api-mock/transactions"
+      "https://my-json-server.typicode.com/fidelis182/treasury-api-mockup/transactions"
     )
       .then((res) => res.json())
       .then((data) => setTransactions(data))

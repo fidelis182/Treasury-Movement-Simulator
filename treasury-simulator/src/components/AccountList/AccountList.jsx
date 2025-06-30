@@ -12,7 +12,7 @@ export default function AccountList() {
   useEffect(() => {
     // to get data from the API
     fetch(
-      "https://my-json-server.typicode.com/fidelis182/treasury-api-mock/accounts"
+      "https://my-json-server.typicode.com/fidelis182/treasury-api-mockup/accounts"
     )
       // promise
       .then((res) => res.json())
